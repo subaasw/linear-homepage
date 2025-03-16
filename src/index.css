@@ -370,7 +370,6 @@ button:focus-visible {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  aspect-ratio: 432 / 320;
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
@@ -408,23 +407,11 @@ button:focus-visible {
   );
 }
 
-.projectOverview_inner {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  --gradientBorder-size: 1px;
-  --gradientBorder-gradient: linear-gradient(
-    to bottom right,
-    hsla(0, 0%, 100%, 0.17),
-    transparent
-  );
-  background: linear-gradient(
-    134deg,
-    hsla(0, 0%, 100%, 0.08),
-    hsla(0, 0%, 100%, 0.02),
-    hsla(0, 0%, 100%, 0) 55%
-  );
-  border-radius: 10px;
+.NotificationAsset_cards {
+  width: 100%;
+  height: 100%;
+  perspective: 2000px;
+  perspective-origin: 50%;
 }
 
 .utils_gradientBorder {
@@ -456,17 +443,174 @@ button:focus-visible {
   mask-composite: exclude;
 }
 
-.NotificationAsset_card {
+.NotificationAsset_card_Root {
   --base-x: 10%;
   --base-z: 180px;
-  
-  --z: calc(-1* var(--base-z));
-  --x: calc(var(--base-x) + 3%)
-  --y: 40%;
+  --y: 0;
+  --c: 40;
+  --z: 0;
+  aspect-ratio: 432 / 320;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  width: 100%;
+  contain: strict;
+  isolation: isolate;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  position: relative;
+}
 
+.NotificationAsset_card_Root::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+      to bottom,
+      var(--color-bg-primary) 0,
+      transparent 30%
+    ),
+    linear-gradient(to right, transparent 60%, var(--color-bg-primary) 100%);
+}
+
+.NotificationAsset_card {
   transform: skewY(-4deg) rotateX(-14deg) rotateY(20deg) translateZ(var(--z))
     translateX(var(--x)) translateY(var(--y));
   transform-style: preserve-3d;
-  transition: 0.32s var(--ease-out-quad);
+  transition: 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-property: transform, background;
+
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 500px;
+  isolation: isolate;
+  contain: paint;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.NotificationAsset_card:hover {
+  background: hsla(0, 0%, 100%, 0.08);
+}
+
+.NotificationAsset_card_inner {
+  padding: 20px;
+  opacity: 0.2;
+  filter: grayscale(1);
+  transition: 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-property: opacity;
+}
+
+.NotificationAsset_card_inner:hover,
+.NotificationAsset_card:last-child .NotificationAsset_card_inner {
+  opacity: 1;
+  filter: none;
+}
+
+.NotificationAsset_card:nth-child(2):hover {
+  --y: -40%;
+}
+
+.NotificationAsset_card:first-child:hover {
+  --y: -40%;
+}
+
+.NotificationAsset_card:last-child:hover {
+  --y: -30%;
+}
+
+.NotificationAsset_card:first-child {
+  --x: calc(var(--base-x) + 3%);
+  --y: -20%;
+  --z: calc(-1 * var(--base-z));
+  background: rgba(var(--c), var(--c), var(--c), 0.2);
+}
+
+.NotificationAsset_card:nth-child(2) {
+  --x: var(--base-x);
+  --y: -20%;
+  --z: 0;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background: rgba(var(--c), var(--c), var(--c), 0.2);
+}
+
+.NotificationAsset_card:last-child {
+  --x: calc(var(--base-x) - 3%);
+  --y: -20%;
+  --z: var(--base-z);
+  background: rgba(var(--c), var(--c), var(--c), 0.4);
+}
+
+.Editor_Container,
+.collaborative-wrapper {
+  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 80%,
+    var(--color-bg-primary) 97%
+  );
+}
+
+.insight_image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to bottom,
+      transparent 70%,
+      var(--color-bg-primary) 100%
+    ),
+    linear-gradient(
+      to right,
+      var(--color-bg-primary) 0,
+      transparent 20%,
+      transparent 80%,
+      var(--color-bg-primary) 100%
+    ),
+    linear-gradient(150deg, var(--color-bg-primary) 20%, transparent 30%);
+}
+
+/* .Workflows_Carousel_topRightFade {
+  aspect-ratio: 336 / 469;
+  max-width: calc(
+    100vw - var(--page-padding-left) - var(--page-padding-right) - 32px
+  );
+} */
+
+.Workflows_Carousel_topRightFade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    var(--color-bg-level-1) 100%
+  );
+  border-radius: 30px;
+}
+
+.Workflows_Carousel_topRightFade::after {
+  content: "";
+  border-radius: 30px;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    transparent 79.32%,
+    var(--color-bg-level-1) 100%
+  );
 }

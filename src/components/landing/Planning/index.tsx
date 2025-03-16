@@ -1,3 +1,5 @@
+import { ChevronRight, SquareUser } from "lucide-react";
+import { cn } from "@/lib/utils";
 import {
   DiamondFillIcon,
   DiamondOutlineIcon,
@@ -8,8 +10,7 @@ import {
   UpDownLineIcon,
   DownUpIcon,
 } from "@/assets/icons";
-import { cn } from "@/lib/utils";
-import { ChevronRight, SquareUser } from "lucide-react";
+import ProductPlanning from "./product-planning";
 
 interface IconWithTextProps {
   Icon: React.ElementType;
@@ -29,12 +30,13 @@ interface NotificationAssetCardProps {
 
 const notificationAssetsList = [
   {
-    title: "On track",
-    desc: "We are ready to launch next Thursday",
-    icon: ChatIcon,
-    date: "Sep 8",
-    innerClass: "text-lime",
+    title: "Off Track",
+    desc: "Unexpected roadblocks forced us to take a different…",
+    icon: DownUpIcon,
+    date: "Oct 28",
+    innerClass: "text-red",
   },
+
   {
     title: "At risk",
     desc: "Progress slowed down last week because…",
@@ -42,12 +44,13 @@ const notificationAssetsList = [
     date: "Oct 27",
     innerClass: "text-orange",
   },
+
   {
-    title: "Off Track",
-    desc: "Unexpected roadblocks forced us to take a different…",
-    icon: DownUpIcon,
-    date: "Oct 28",
-    innerClass: "text-red",
+    title: "On track",
+    desc: "We are ready to launch next Thursday",
+    icon: ChatIcon,
+    date: "Sep 8",
+    innerClass: "text-lime",
   },
 ];
 
@@ -76,14 +79,19 @@ function NotificationAssetCard({
 }: NotificationAssetCardProps) {
   return (
     <div
-      className={cn("NotificationAsset_card space-y-4 backdrop-blur-md font-medium border p-4 rounded-[16px]", className)}
+      className={cn(
+        "NotificationAsset_card space-y-4 font-medium border rounded-[16px]",
+        className
+      )}
     >
-      <div className={cn("flex gap-2", innerClassName)}>
-        <Icon className="h-7 w-7 bg-current/15 rounded-full" />
-        <span>{title}</span>
+      <div className="NotificationAsset_card_inner">
+        <div className={cn("flex gap-2 mb-1.5", innerClassName)}>
+          <Icon className="h-5 w-5 bg-current/15 rounded-full" />
+          <span>{title}</span>
+        </div>
+        <p className="pb-2.5">{desc}</p>
+        <p className="text-dimgrey">{date}</p>
       </div>
-      <p className="pb-2">{desc}</p>
-      <p className="text-dimgrey">{date}</p>
     </div>
   );
 }
@@ -192,21 +200,24 @@ export default function PlanningSection() {
             updates.
           </p>
 
-          <div>
-            {notificationAssetsList.map((item) => (
-              <NotificationAssetCard
-                key={item.title}
-                innerClassName={item.innerClass}
-                Icon={item.icon}
-                date={item.date}
-                title={item.title}
-                desc={item.desc}
-                className=""
-              />
-            ))}
+          <div className="NotificationAsset_card_Root">
+            <div className="NotificationAsset_cards mt-10">
+              {notificationAssetsList.map((item) => (
+                <NotificationAssetCard
+                  key={item.title}
+                  innerClassName={item.innerClass}
+                  Icon={item.icon}
+                  date={item.date}
+                  title={item.title}
+                  desc={item.desc}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      <ProductPlanning />
     </section>
   );
 }

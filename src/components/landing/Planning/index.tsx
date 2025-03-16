@@ -130,7 +130,7 @@ export default function PlanningSection() {
         />
       </div>
 
-      <div className="container mx-auto px-4 border-y grid grid-cols-2">
+      <div className="container mx-auto px-4 border-y grid md:grid-cols-2">
         <div className="py-14 border-r">
           <h3 className="mb-1 font-medium">Manage projects end-to-end</h3>
           <p className="text-gray text-lg leading-6 font-medium">

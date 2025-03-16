@@ -30,7 +30,7 @@ function CollaborativeDocument({
 }: CollaborativeDocumentProps) {
   return (
     <div className="relative Editor_Container h-[490px]">
-      <DocumentEditingLayoutSVG className="h-full" />
+      <DocumentEditingLayoutSVG className="h-full w-full md:w-[initial]" />
       <div className="absolute mt-24 top-20 px-24 flex flex-col items-start collaborative-wrapper">
         <div className="bg-lime/10 p-2 rounded-8 inline-block mb-3">
           <Icon className="h-5 w-5 text-lime fill-lime stroke-lime" />

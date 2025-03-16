@@ -5,7 +5,7 @@ export default function UnderTheHoodSection() {
   return (
     <section className="page_section py-40 overflow-hidden">
       <div className="container mx-auto px-4 font-medium">
-        <div className="grid grid-cols-2 gap-2 mb-14">
+        <div className="grid md:grid-cols-2 gap-2 mb-14">
           <div>
             <span className="mb-4 block">
               <div className="flex items-center gap-2 text-lightgray mb-3">
@@ -25,7 +25,7 @@ export default function UnderTheHoodSection() {
             </p>
             <hr className="w-[80%]" />
 
-            <table className="[&_td]:text-gray font-normal [&_td]:p-6 text-sm text-left w-[85%] table-fixed ">
+            <table className="[&_td]:text-gray font-normal [&_td]:p-6 text-sm text-left w-full md:w-[85%] md:table-fixed ">
               <tbody>
                 <tr>
                   <th>Linear Sync Engine</th>
@@ -93,7 +93,7 @@ export default function UnderTheHoodSection() {
             </div>
           </div>
 
-          <UnderTheHoodAssetSVG className="-ml-6 mt-6" />
+          <UnderTheHoodAssetSVG className="-ml-6 mt-6 hidden md:inline" />
         </div>
       </div>
     </section>

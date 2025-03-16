@@ -15,7 +15,7 @@ import FeatureLookupSection, {
 
 function BentoGrid() {
   return (
-    <div className="container mx-auto px-4 border-y grid grid-cols-2">
+    <div className="container mx-auto px-4 border-y grid md:grid-cols-2">
       <div className="py-14 border-r pr-6">
         <h3 className="mb-1 font-medium">Build momentum with Cycles</h3>
         <p className="text-gray text-lg leading-6 font-medium">

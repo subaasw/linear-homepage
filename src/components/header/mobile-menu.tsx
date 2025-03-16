@@ -11,7 +11,7 @@ export default function MobileMenu({ toggleMenu, isOpen }: MobileMenuProps) {
   };
 
   return (
-    <div className="fixed top-16 inset-0 bg-black z-50 overflow-y-auto backdrop-blur-2xl">
+    <div className="fixed block md:hidden top-16 inset-0 bg-black z-50 overflow-y-auto backdrop-blur-2xl">
       <div className="p-4 pt-8">
         <div className="mb-8">
           <p className="text-gray-500 text-sm mb-4">Product</p>

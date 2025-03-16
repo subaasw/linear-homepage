@@ -80,7 +80,7 @@ const ImageCarousel = ({ images = customerIcons, interval = 2500 }) => {
   const currentImages = images.slice(currentIndex, currentIndex + 6);
 
   return (
-    <div className="grid grid-cols-3 gap-x-8 gap-y-16 py-8 relative justify-items-center mt-8 font-normal group-hover:blur-xs">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-16 py-8 relative justify-items-center mt-8 font-normal group-hover:blur-xs">
       {currentImages.map((CustomerImage, index) => (
         <div
           key={index}

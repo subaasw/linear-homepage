@@ -2,8 +2,8 @@ export default function PreFooterSection() {
   return (
     <section className="pb-24">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between">
-          <h2 className="text-[40px] font-medium">
+        <div className="flex items-center md:justify-between flex-col md:flex-row">
+          <h2 className="text-[40px] text-center md:text-left font-medium">
             Plan the present. Build the future.
           </h2>
           <div className="flex items-center gap-2 font-medium">

@@ -23,7 +23,7 @@ export default function WhatMakesLinerDiff() {
   return (
     <section className="py-40 section_sectionWhatMakesLinearDifferent">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-20 place-items-center font-medium mb-14 px-4">
+        <div className="grid md:grid-cols-2 gap-20 place-items-center font-medium mb-14 px-4">
           <h2 className="text-[56px] leading-16 font-medium">
             Made for modern product teams
           </h2>
@@ -41,7 +41,7 @@ export default function WhatMakesLinerDiff() {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 text-white">
+        <div className="grid md:grid-cols-3 gap-2 text-white">
           {FeaturesList.map((feature) => (
             <Button
               key={feature.title}

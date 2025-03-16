@@ -249,8 +249,12 @@ button:focus-visible {
   body {
     @apply bg-richblack text-foreground;
   }
-  h1 {
+  h1,
+  h2 {
     font-size: 56px;
+  }
+  h3 {
+    font-size: 22px;
   }
 }
 
@@ -295,6 +299,7 @@ button:focus-visible {
   backface-visibility: hidden;
   user-select: none;
   pointer-events: none;
+  /* position: relative; */
 }
 
 .HeroImage_Flip_3D::after {
@@ -305,10 +310,14 @@ button:focus-visible {
   z-index: 2;
   background: linear-gradient(
     to bottom,
-    transparent 50%,
+    transparent 20%,
     var(--color-bg-primary) 100%
   );
 }
+
+/* .HeroImage_Inbox_Message {
+  position: relative;
+} */
 
 .HeroImage_Inbox_Message::after {
   content: "";
@@ -320,4 +329,144 @@ button:focus-visible {
     transparent 80%,
     var(--color-bg-primary) 90%
   );
+}
+
+.page_section {
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg-translucent),
+    transparent 20%
+  );
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s forwards;
+}
+
+.section_sectionWhatMakesLinearDifferent {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(97, 106, 115, 0.12) 40%,
+    rgba(97, 106, 115, 0.12) 60%,
+    rgba(97, 106, 115, 0)
+  );
+}
+
+.ProjectOverview_root {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  aspect-ratio: 432 / 320;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  --mask-visible: #000;
+  --mask-invisible: transparent;
+  --mask-bottom: linear-gradient(
+    to bottom,
+    var(--mask-visible) 50%,
+    var(--mask-invisible) 100%
+  );
+  --mask-right: linear-gradient(
+    to right,
+    var(--mask-visible) 20%,
+    var(--mask-invisible) 100%
+  );
+  -webkit-mask-image: var(--mask-bottom), var(--mask-right);
+  mask-image: var(--mask-bottom), var(--mask-right);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.page_planningHeroImage {
+  display: block;
+  -webkit-mask-image: radial-gradient(
+    57% 57% at 50% 35%,
+    #d9d9d9 0,
+    hsla(0, 0%, 45%, 0) 100%
+  );
+  mask-image: radial-gradient(
+    57% 57% at 50% 35%,
+    #d9d9d9 0,
+    hsla(0, 0%, 45%, 0) 100%
+  );
+}
+
+.projectOverview_inner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  --gradientBorder-size: 1px;
+  --gradientBorder-gradient: linear-gradient(
+    to bottom right,
+    hsla(0, 0%, 100%, 0.17),
+    transparent
+  );
+  background: linear-gradient(
+    134deg,
+    hsla(0, 0%, 100%, 0.08),
+    hsla(0, 0%, 100%, 0.02),
+    hsla(0, 0%, 100%, 0) 55%
+  );
+  border-radius: 10px;
+}
+
+.utils_gradientBorder {
+  position: relative;
+}
+
+.utils_gradientBorder:before {
+  content: "";
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  padding: 1px 1px;
+  background: linear-gradient(
+    to bottom right,
+    hsla(0, 0%, 100%, 0.07),
+    transparent
+  );
+  -webkit-mask: linear-gradient(#000, #000) content-box,
+    linear-gradient(#000, #000);
+  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.NotificationAsset_card {
+  --base-x: 10%;
+  --base-z: 180px;
+  
+  --z: calc(-1* var(--base-z));
+  --x: calc(var(--base-x) + 3%)
+  --y: 40%;
+
+  transform: skewY(-4deg) rotateX(-14deg) rotateY(20deg) translateZ(var(--z))
+    translateX(var(--x)) translateY(var(--y));
+  transform-style: preserve-3d;
+  transition: 0.32s var(--ease-out-quad);
+  transition-property: transform, background;
 }

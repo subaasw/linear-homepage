@@ -1,13 +1,9 @@
-import { MegaNavigationMenu } from "@/components/landing/header/megamenu";
-import Logo from "@/components/SiteLogo";
-import { Button } from "./ui/button";
-// import { Button } from "./ui/button";
-// import { Menu } from "lucide-react";
-// import MobileMenu from "@/components/mobile-menu"
-
-import { MenuIcon, X } from "lucide-react";
-import MobileMenu from "./landing/header/mobile-menu";
 import { useState } from "react";
+import { MenuIcon, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MegaNavigationMenu } from "@/components/header/megamenu";
+import MobileMenu from "@/components/header/mobile-menu";
+import Logo from "@/components/Icons/SiteLogo";
 
 export default function Header() {
   const [isOpen, toggleMenu] = useState(false);
@@ -21,7 +17,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="border-b border-b-white/10 backdrop-blur-sm fixed w-full bg-[#0a0a0a]/80">
+      <header className="border-b border-b-white/10 backdrop-blur-sm fixed z-50 w-full bg-[#0a0a0a]/80">
         <nav className="container mx-auto flex items-center justify-between py-4 px-4">
           <a href="/">
             <Logo />

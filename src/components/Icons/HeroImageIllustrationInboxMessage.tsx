@@ -5,7 +5,7 @@ export const HeroImageIllustrationInboxMessageComponent = () => (
     height={884}
     fill="none"
     viewBox="0 0 1399 884"
-    className="translate-x-2 translate-y-4 overflow-hidden"
+    className="translate-x-2 translate-y-4"
   >
     <g clipPath="url(#clip0_7846_49627)">
       <rect width={1399} height={884} fill="#131315" rx={4} />

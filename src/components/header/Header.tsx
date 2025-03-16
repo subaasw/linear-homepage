@@ -10,7 +10,12 @@ export default function Header() {
 
   const handleMobileMenuClick = () => {
     toggleMenu((prev) => {
-      document.body.style = prev ? "overflow: initial" : "overflow: hidden;";
+      if (document?.body?.setAttribute) {
+        document.body.setAttribute(
+          "style",
+          prev ? "overflow: initial" : "overflow: hidden;"
+        );
+      }
       return !prev;
     });
   };
